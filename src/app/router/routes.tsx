@@ -1,6 +1,8 @@
 import { Suspense, useEffect, type ComponentType, type ReactNode } from 'react'
 import { createBrowserRouter, useLocation, type RouteObject } from 'react-router-dom'
 import { AdminLayout, AuthLayout, StoreLayout } from '@/app/layouts'
+// Import directo (no vía index.ts) para no arrastrar LandingPage fuera de su chunk lazy.
+import { LandingLayout } from '@/modules/landing/view/layout/LandingLayout'
 import { PageLoader } from '@/shared/ui'
 import { useDocumentTitle } from '@/shared/hooks'
 import { analytics } from '@/lib/analytics'
@@ -10,6 +12,7 @@ import { NotFoundPage } from './lazy-components'
 import type { AppRoute, LayoutKey } from './route-types'
 
 const layouts: Record<LayoutKey, ComponentType> = {
+  landing: LandingLayout,
   store: StoreLayout,
   auth: AuthLayout,
   admin: AdminLayout,

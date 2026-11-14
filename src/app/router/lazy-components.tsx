@@ -1,5 +1,8 @@
 import { lazyNamed, retryImport } from './lazy-helpers'
 
+/* Landing */
+export const LandingPage = lazyNamed(() => retryImport(() => import('@/modules/landing/view/LandingPage')), 'LandingPage')
+
 /* Store */
 export const HomePage = lazyNamed(() => retryImport(() => import('@/modules/home/view/HomePage')), 'HomePage')
 export const CatalogPage = lazyNamed(() => retryImport(() => import('@/modules/catalog/view/CatalogPage')), 'CatalogPage')

@@ -1,0 +1,14 @@
+/**
+ * Catálogo de imágenes de la landing. Hoy apuntan al CDN de la maqueta;
+ * para usar fotos propias, cámbialas aquí (o súbelas a /public y usa rutas locales).
+ */
+const CDN = 'https://lh3.googleusercontent.com/aida-public'
+
+export const IMAGES = {
+  logo: `${CDN}/AB6AXuCU7DeiyZW6YZPi3t2leA4ss2xbG0MCne3Xp7xP2YdMf9JKvKd8JA5EEZctmjiUSRRPaAnm_wvjBQi48VWTEPAldu4WCTXi1evV44wqinqUU9rVaQhtpq2BKup8RNL9FyyJyS_WC9gXi6_zkPb5Hwu5iWhRGBkwgp8orUj11gs8cS_XnwTayw-pCfcuHaYGszwOwnXex-IOoV2RTASD3XyzFSImlVoYrj9aFNUOyzFy-IYLdrODNOtwqQ`,
+  workshop: `${CDN}/AB6AXuCvItHub4IwUK7Dd6Ym51TQxFNHlVh0VrlxO4OIRd-eBReHSYCTcV2l2-5y6Murloy2Y1yQXGssSQvLFEjWevrhhBb3Na-eB-ZGol2AUNftyggsS5W3KMmmrSfd7CNr7VF7ZKVt135lju5SQIXnDbtWGFMo6KYfF4U8xkExV49zgEL4ZA4hS38g87g1bihb71uof2MUJ2kas0ZjXrdYFbQetVtTI3gc7bGl71-Ic49c`,
+  acrylicGuards: `${CDN}/AB6AXuDzjDt4jFjs-nD0dtTmvCKSqdw4dQeV_oqU9Q5AI1pbmLy1gMYSX4UEtDbWXixFyi5R1ybvV9pbzEUgngNxBzaXk_ku04NgSaUDNqQEHhQDYw5RMr56M1gGct2UGgbVAyxcjrCHqJ-JYoPIRGqhN6F2YDb1SDGYmvSrlZm6F_BnVz_lAxuY_a1APi8EGcPLrbXx4pTNmeZSJF5I3aJZc3dzHgHeCwPpwXtD9ElncTy0`,
+  dtfMetals: `${CDN}/AB6AXuCQV3eGPqLIGE3DD7TTIEGgAVv9pgeygCxThJ_U9-3lRVHFUEYUHKIPHwzhVTyGh4ozaipxZhrBHn_COZSqkxHFYxR94a39AdzOqZPFd8C0r1fXKJ1REzYMrJefPSaNmfoVjfhTQb0Bo_QdRAzKC8yVC7odjsd3czCbzWrOKt51SwTNOUJS1Lo8ufQs-XPVGo22pb6RpikwsXdyGiaRfRdYJsZaCz8wtUUEfG4rDT3z`,
+  embroidery: `${CDN}/AB6AXuCSsFkp6bpsCckn2GgMy9S1tTM6749kL8ptayPqjiV-E2lgo9dYvBSSiDbSCZ-hMEnabndUyyuPQPSUTJT_qOravrPtg68SMLYgU_3x1AKPv1FVtHBqC5ys_XLP6ppepFTtxYvARI9Cu0gn-rHRXIFJmUCtpnY7isWXEcV55tEw5sIxHg07Q0Q_Zx1EGrXK5xWqU64Mu3ZEDr6EyBvxyEb5TYJr6vmFMncvsPCumf55`,
+  laserCnc: `${CDN}/AB6AXuCNTGF0wu4MVZcdMNRfL3ZrpTXjeEC-jy3AUP8FZN2fAdgMAP6V3o6-IBbjlW0v-1_gj-y5VlqOMFlmcsvh3mf5Hzj5HX0MQAdd0O9B3dD3MALR6dVTgvnXOv1aaWdxSghsqAIKU_lqcZa3clh8nx34Du-2AV5C9s3qePTXjWY4it-nMg2sKaF1Pm4gALPhJipbS1BAPLiBY0NkUKFEfv3JwmFKDZ-42thkAMy_zi5C`,
+} as const

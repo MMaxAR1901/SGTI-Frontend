@@ -1,0 +1,8 @@
+export { CtaBanner } from './CtaBanner'
+export { GallerySection } from './GallerySection'
+export { HeroSection } from './HeroSection'
+export { QuoteSection } from './QuoteSection'
+export { SectorsSection } from './SectorsSection'
+export { ServicesSection } from './ServicesSection'
+export { TechnologySection } from './TechnologySection'
+export { TrajectorySection } from './TrajectorySection'

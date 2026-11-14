@@ -15,6 +15,73 @@ npm run lint
 Modo demo: sin `VITE_API_URL` todos los servicios usan datos mock y persisten en `localStorage`.
 Cualquier correo inicia sesión; los que empiezan con `admin@` entran al panel `/admin`.
 
+## Landing corporativa (`/`)
+
+La raíz del sitio es la landing de SGTI (diseño *SGTI Precision Technical System*).
+La tienda en línea vive ahora en `/tienda`.
+
+```
+src/
+├─ shared/config/contact.config.ts   ← teléfono, WhatsApp, correos, horario, dirección (único lugar)
+├─ index.css                         ← tokens del diseño en @theme (colores, tipografía, espaciado,
+│                                      animaciones) + scope .theme-sgti, Material Symbols, scrollbar
+└─ modules/landing/
+   ├─ model/landing.types.ts          Service, ServiceSpecs, Substrate, GalleryItem, Client, Sector…
+   ├─ data/                           (Model) contenido listo para venir de una API
+   │  ├─ services.data.ts             catálogo de 6 servicios: tarjeta + ficha técnica del modal
+   │  ├─ content.data.ts              hero, sustratos, galería, clientes, sectores, beneficios
+   │  ├─ navigation.data.ts           SECTION_IDS, menú, columnas del footer, enlaces legales
+   │  ├─ images.data.ts               URLs de imágenes en un solo lugar
+   │  └─ landing.service.ts           getContent() / getService(id): mock local o API (VITE_API_URL)
+   ├─ vm/                             (ViewModel) estado y lógica
+   │  ├─ useLandingVM.ts              carga contenido + expone el modal
+   │  ├─ useSpecModalVM.ts            abrir/cerrar, servicio seleccionado, Esc/←/→, bloqueo de scroll
+   │  ├─ useCarousel.ts               índice circular, next/prev/goTo
+   │  ├─ useNavBarVM.ts               enlaces + sección activa (scroll-spy)
+   │  ├─ useLandingLayoutVM.ts        datos de TopBar, Footer y botón flotante
+   │  └─ contact-links.ts             buildWhatsAppUrl / buildTelUrl / buildMailtoUrl
+   └─ view/                           (View) presentación pura
+      ├─ components/                  Icon, Logo, Button, Pill, SectionHeader/Eyebrow, Container,
+      │                               TopBar, NavBar, ServiceCard, FeatureCard/SubstrateCard,
+      │                               GalleryCard, ClientMarquee, SectorBadge, Footer,
+      │                               FloatingWhatsApp, SpecModal, Carousel
+      ├─ sections/                    Hero, Services, CtaBanner, Technology, Gallery,
+      │                               Trajectory, Quote, Sectors (composición de componentes)
+      ├─ layout/LandingLayout.tsx     aplica .theme-sgti + TopBar/NavBar/Footer/WhatsApp
+      └─ LandingPage.tsx
+```
+
+**Tokens.** Los nombres del diseño (`bg-primary-container`, `text-on-surface`, `text-headline-xl`,
+`font-label-tech`, `p-gutter`, `animate-marquee`…) se usan como cualquier utilidad de Tailwind.
+Los que chocan con el tema del e-commerce (`surface`, radios `lg`/`xl`) sólo cambian dentro de
+`.theme-sgti`, así que la tienda no se ve afectada.
+
+### Agregar un servicio nuevo
+
+1. En `src/modules/landing/data/services.data.ts` añade un objeto a `SERVICES`:
+   ```ts
+   {
+     id: 'sublimacion',                 // único; se usa para abrir el modal
+     icon: 'palette',                   // nombre de Material Symbols
+     name: 'Sublimación',               // tarjeta
+     summary: 'Descripción corta…',
+     ctaLabel: 'Consultar especificaciones',
+     featured: false,                   // true = borde menta + badge "Destacado"
+     detail: {
+       title: 'Sublimación Textil',     // modal
+       category: 'Textil & Promocionales',
+       whatsappMessage: 'Hola SGTI, deseo cotizar Sublimación',
+       images: [{ url: IMAGES.workshop, caption: '…' }],   // 1+ imágenes para el carrusel
+       specs: { substrates: '…', tech: '…', tolerances: '…', durability: '…' },
+       variants: [{ title: '…', description: '…' }],
+     },
+   }
+   ```
+2. Listo: la tarjeta aparece en el catálogo y el modal, el carrusel y el enlace de WhatsApp se
+   generan solos. (Opcional) agrega su enlace en `FOOTER_COLUMNS` de `navigation.data.ts`.
+
+Para cambiar teléfono, WhatsApp o correos edita sólo `src/shared/config/contact.config.ts`.
+
 ## Estructura
 
 ```

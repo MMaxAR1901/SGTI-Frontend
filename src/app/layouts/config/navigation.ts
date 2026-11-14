@@ -15,5 +15,5 @@ export const adminNav: NavItem[] = [
   { label: 'Resumen', to: PATHS.admin, icon: LayoutDashboard, end: true },
   { label: 'Pedidos', to: PATHS.adminOrders, icon: ReceiptText },
   { label: 'Productos', to: PATHS.adminProducts, icon: Package },
-  { label: 'Ver tienda', to: PATHS.home, icon: Store, end: true },
+  { label: 'Ver tienda', to: PATHS.store, icon: Store, end: true },
 ]

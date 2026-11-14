@@ -6,8 +6,12 @@ import * as Pages from './lazy-components'
  * Para agregar un módulo nuevo: crea su página, regístrala en lazy-components
  * y añade aquí su bloque. El layout y el guard se aplican automáticamente.
  */
+const landingRoutes: AppRoute[] = [
+  { path: '', component: Pages.LandingPage, layout: 'landing', title: 'Soluciones Gráficas, Tecnológicas e Industriales' },
+]
+
 const storeRoutes: AppRoute[] = [
-  { path: '', component: Pages.HomePage, layout: 'store' },
+  { path: 'tienda', component: Pages.HomePage, layout: 'store', title: 'Tienda' },
   { path: 'catalogo', component: Pages.CatalogPage, layout: 'store', title: 'Catálogo' },
   { path: 'producto/:slug', component: Pages.ProductDetailPage, layout: 'store' },
   { path: 'carrito', component: Pages.CartPage, layout: 'store', title: 'Carrito' },
@@ -36,6 +40,7 @@ const adminRoutes: AppRoute[] = [
 ]
 
 export const routeRegistry: AppRoute[] = [
+  ...landingRoutes,
   ...storeRoutes,
   ...checkoutRoutes,
   ...accountRoutes,

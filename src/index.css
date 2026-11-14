@@ -53,6 +53,218 @@
   }
 }
 
+/*
+ * ─── SGTI Precision Technical System (landing) ───────────────────────────────
+ * Tokens tomados de la referencia de diseño (DESIGN.md / code.html).
+ * Los nombres nuevos se registran globalmente; los que chocan con el tema del
+ * e-commerce (surface, radios) se reasignan sólo dentro de `.theme-sgti`.
+ */
+@theme {
+  /* Colores */
+  --color-background: #f8f9ff;
+  --color-on-background: #0b1c30;
+  --color-surface-dim: #cbdbf5;
+  --color-surface-bright: #f8f9ff;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #eff4ff;
+  --color-surface-container: #e5eeff;
+  --color-surface-container-high: #dce9ff;
+  --color-surface-container-highest: #d3e4fe;
+  --color-surface-variant: #d3e4fe;
+  --color-surface-tint: #006c4d;
+  --color-on-surface: #0b1c30;
+  --color-on-surface-variant: #3b4a42;
+  --color-inverse-surface: #213145;
+  --color-inverse-on-surface: #eaf1ff;
+  --color-inverse-primary: #27e0a5;
+  --color-outline: #6b7b72;
+  --color-outline-variant: #bacac0;
+  --color-primary: #006c4d;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #00d59b;
+  --color-on-primary-container: #00563d;
+  --color-primary-fixed: #54fec0;
+  --color-primary-fixed-dim: #27e0a5;
+  --color-on-primary-fixed: #002115;
+  --color-on-primary-fixed-variant: #005139;
+  --color-secondary: #565e74;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dae2fd;
+  --color-on-secondary-container: #5c647a;
+  --color-secondary-fixed: #dae2fd;
+  --color-secondary-fixed-dim: #bec6e0;
+  --color-on-secondary-fixed: #131b2e;
+  --color-on-secondary-fixed-variant: #3f465c;
+  --color-tertiary: #006c4a;
+  --color-on-tertiary: #ffffff;
+  --color-tertiary-container: #5cd09e;
+  --color-on-tertiary-container: #00563b;
+  --color-tertiary-fixed: #85f8c4;
+  --color-tertiary-fixed-dim: #68dba9;
+  --color-on-tertiary-fixed: #002114;
+  --color-on-tertiary-fixed-variant: #005137;
+  --color-error: #ba1a1a;
+  --color-on-error: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+
+  /* Familias tipográficas por rol */
+  --font-display-hero: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-display-hero-mobile: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-headline-xl: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-headline-xl-mobile: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-headline-lg: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-headline-md: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-headline-sm: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-label-tech: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  --font-body-lg: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body-md: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-body-sm: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-label-lg: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-label-md: 'Plus Jakarta Sans', ui-sans-serif, system-ui, sans-serif;
+
+  /* Escala tipográfica */
+  --text-display-hero: 48px;
+  --text-display-hero--line-height: 56px;
+  --text-display-hero--letter-spacing: -0.03em;
+  --text-display-hero--font-weight: 700;
+  --text-display-hero-mobile: 32px;
+  --text-display-hero-mobile--line-height: 40px;
+  --text-display-hero-mobile--letter-spacing: -0.02em;
+  --text-display-hero-mobile--font-weight: 700;
+  --text-headline-xl: 36px;
+  --text-headline-xl--line-height: 44px;
+  --text-headline-xl--letter-spacing: -0.02em;
+  --text-headline-xl--font-weight: 700;
+  --text-headline-xl-mobile: 26px;
+  --text-headline-xl-mobile--line-height: 34px;
+  --text-headline-xl-mobile--letter-spacing: -0.01em;
+  --text-headline-xl-mobile--font-weight: 700;
+  --text-headline-lg: 28px;
+  --text-headline-lg--line-height: 36px;
+  --text-headline-lg--letter-spacing: -0.01em;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-md: 22px;
+  --text-headline-md--line-height: 30px;
+  --text-headline-md--font-weight: 600;
+  --text-headline-sm: 18px;
+  --text-headline-sm--line-height: 26px;
+  --text-headline-sm--font-weight: 600;
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+  --text-body-md: 15px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
+  --text-label-lg: 14px;
+  --text-label-lg--line-height: 20px;
+  --text-label-lg--letter-spacing: 0.01em;
+  --text-label-lg--font-weight: 600;
+  --text-label-md: 12px;
+  --text-label-md--line-height: 16px;
+  --text-label-md--letter-spacing: 0.02em;
+  --text-label-md--font-weight: 600;
+  --text-label-tech: 11px;
+  --text-label-tech--line-height: 14px;
+  --text-label-tech--letter-spacing: 0.08em;
+  --text-label-tech--font-weight: 700;
+
+  /* Espaciado semántico (base 8px) */
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-gutter-sm: 1rem;
+  --spacing-gutter: 1.5rem;
+  --spacing-gutter-lg: 2rem;
+  --spacing-margin-mobile: 1rem;
+  --spacing-margin: 2rem;
+  --spacing-margin-desktop: 3rem;
+
+  /* Animaciones */
+  --animate-marquee: marquee 35s linear infinite;
+  --animate-modal-in: modal-in 200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+
+  @keyframes marquee {
+    from { transform: translateX(0%); }
+    to { transform: translateX(-50%); }
+  }
+  @keyframes modal-in {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+@layer base {
+  /* Alcance del sistema SGTI: reasigna tokens que comparten nombre con el e-commerce. */
+  .theme-sgti {
+    --color-surface: #f8f9ff;
+    --radius: 0.125rem;
+    --radius-lg: 0.25rem;
+    --radius-xl: 0.5rem;
+    font-family: var(--font-body-md);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--color-on-surface);
+    background-color: var(--color-background);
+  }
+  .theme-sgti :where(h1, h2, h3, h4, h5, h6) {
+    font-family: inherit;
+    color: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+  }
+  .theme-sgti :focus-visible {
+    outline-color: var(--color-primary-container);
+  }
+  .theme-sgti ::selection {
+    background: var(--color-primary-container);
+    color: var(--color-on-surface);
+  }
+  html:has(.theme-sgti) {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  /* Material Symbols Outlined (la fuente se carga en index.html). Clase propia para que
+     las utilidades de Tailwind (text-*, leading-*) puedan sobrescribir su tamaño. */
+  .icon-symbol {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    user-select: none;
+  }
+  .icon-symbol-filled {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+
+  .custom-scroll::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scroll::-webkit-scrollbar-thumb {
+    background-color: var(--color-outline-variant);
+    border-radius: 4px;
+  }
+}
+
 @layer base {
   html {
     -webkit-font-smoothing: antialiased;

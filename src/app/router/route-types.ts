@@ -1,6 +1,6 @@
 import type { ComponentType, LazyExoticComponent } from 'react'
 
-export type LayoutKey = 'store' | 'auth' | 'admin'
+export type LayoutKey = 'landing' | 'store' | 'auth' | 'admin'
 export type RouteGuard = 'guest' | 'auth' | 'admin'
 
 export interface AppRoute {
@@ -15,6 +15,7 @@ export interface AppRoute {
 /** Rutas tipadas: usa PATHS en vez de strings sueltos en los módulos. */
 export const PATHS = {
   home: '/',
+  store: '/tienda',
   catalog: '/catalogo',
   category: (id: string) => `/catalogo?categoria=${id}`,
   product: (slug: string) => `/producto/${slug}`,
