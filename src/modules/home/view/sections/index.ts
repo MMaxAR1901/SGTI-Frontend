@@ -1,0 +1,6 @@
+export * from './CategoriesSection'
+export * from './FeaturedSection'
+export * from './FileTipsSection'
+export * from './HeroSection'
+export * from './ProcessSection'
+export * from './QuoteCtaSection'

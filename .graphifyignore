@@ -1,0 +1,11 @@
+# Archivos que graphify no debe analizar (sintaxis .gitignore)
+node_modules/
+dist/
+graphify-out/
+coverage/
+public/
+*.tar.gz
+package-lock.json
+*.log
+.env
+.env.*
