@@ -12,7 +12,7 @@ export function LandingLayout() {
   const nav = useNavBarVM()
 
   return (
-    <div className="theme-sgti flex min-h-screen flex-col bg-background font-body-md text-on-surface antialiased">
+    <div className="theme-sgti bg-background font-body-md text-on-surface flex min-h-screen flex-col antialiased">
       <TopBar {...vm.topBar} />
       <NavBar {...nav} />
       <main id="main" className="flex-1">

@@ -25,8 +25,8 @@ export function Logo({
       className={cn(
         'flex items-center gap-3',
         variant === 'header'
-          ? 'group shrink-0 rounded focus:outline-none focus:ring-2 focus:ring-primary-container'
-          : 'rounded-lg border border-outline/30 bg-surface-container-lowest p-2',
+          ? 'group focus:ring-primary-container shrink-0 rounded focus:ring-2 focus:outline-none'
+          : 'border-outline/30 bg-surface-container-lowest rounded-lg border p-2',
         className,
       )}
     >
@@ -34,12 +34,12 @@ export function Logo({
         <img src={IMAGES.logo} alt="" className="h-12 w-auto object-contain" />
       </div>
       <div className="flex flex-col text-left">
-        <span className="font-headline-sm text-headline-sm font-bold leading-none tracking-tight text-on-surface">
+        <span className="font-headline-sm text-headline-sm text-on-surface leading-none font-bold tracking-tight">
           {CONTACT.company.shortName}
         </span>
         <span
           className={cn(
-            'mt-1 font-label-tech text-[10px] font-bold uppercase leading-[14px] tracking-widest text-secondary',
+            'font-label-tech text-secondary mt-1 text-[10px] leading-[14px] font-bold tracking-widest uppercase',
             // En el header móvil se oculta para que el CTA quepa sin scroll horizontal.
             variant === 'header' && 'hidden sm:block',
           )}

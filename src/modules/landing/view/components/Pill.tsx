@@ -17,7 +17,7 @@ export function Pill({ children, dot, pulse, tone = 'soft', className }: PillPro
   return (
     <span
       className={cn(
-        'inline-flex items-center gap-2 rounded-full border border-primary/20 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary',
+        'border-primary/20 text-primary inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold tracking-wider uppercase',
         tone === 'faint' ? 'bg-primary/5' : 'bg-primary/10',
         className,
       )}
@@ -25,7 +25,7 @@ export function Pill({ children, dot, pulse, tone = 'soft', className }: PillPro
       {dot && (
         <span
           className={cn(
-            'rounded-full bg-primary',
+            'bg-primary rounded-full',
             dot === 'sm' ? 'h-1.5 w-1.5' : 'h-2 w-2',
             pulse && 'animate-ping',
           )}

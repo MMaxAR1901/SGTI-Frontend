@@ -4,42 +4,43 @@ interface TopBarProps {
   status: string
   phone: { href: string; label: string }
   email: { href: string; label: string }
-  whatsapp: { href: string; label: string }
+  whatsapp: { href: string; label: string; shortLabel: string }
 }
 
 /** Barra superior de contacto directo (estado de planta, teléfono, correo, WhatsApp). */
 export function TopBar({ status, phone, email, whatsapp }: TopBarProps) {
   return (
-    <aside className="w-full border-b border-outline/20 bg-inverse-surface px-6 py-2 font-label-md text-label-md text-inverse-on-surface lg:px-12">
-      <div className="mx-auto flex max-w-7xl items-center justify-between text-xs tracking-wide text-secondary-fixed-dim">
-        <div className="flex items-center gap-6">
-          <span className="inline-flex items-center gap-2 font-medium text-primary-fixed">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary-container" />
+    <aside className="border-outline/20 bg-inverse-surface font-label-md text-label-md text-inverse-on-surface w-full border-b px-4 py-2 sm:px-6 lg:px-12">
+      <div className="text-secondary-fixed-dim mx-auto flex max-w-7xl items-center justify-between gap-3 text-[11px] tracking-wide sm:text-xs">
+        <div className="flex min-w-0 items-center gap-6">
+          <span className="text-primary-fixed inline-flex items-center gap-2 font-medium whitespace-nowrap">
+            <span className="bg-primary-container h-1.5 w-1.5 rounded-full" />
             {status}
           </span>
-          <span className="hidden text-outline/40 md:inline">•</span>
+          <span className="text-outline/40 hidden lg:inline">•</span>
           <a
             href={phone.href}
-            className="hidden items-center gap-1.5 transition-colors hover:text-surface md:inline-flex"
+            className="hover:text-surface hidden items-center gap-1.5 whitespace-nowrap transition-colors lg:inline-flex"
           >
             {phone.label}
           </a>
-          <span className="hidden text-outline/40 sm:inline">•</span>
+          <span className="text-outline/40 hidden md:inline">•</span>
           <a
             href={email.href}
-            className="hidden items-center gap-1.5 transition-colors hover:text-surface sm:inline-flex"
+            className="hover:text-surface hidden items-center gap-1.5 whitespace-nowrap transition-colors md:inline-flex"
           >
             {email.label}
           </a>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex shrink-0 items-center gap-4">
           <a
             href={whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1 font-medium text-primary-fixed hover:underline"
+            className="text-primary-fixed flex items-center gap-1 font-medium hover:underline"
           >
-            <span>{whatsapp.label}</span>
+            <span className="sm:hidden">{whatsapp.shortLabel}</span>
+            <span className="hidden sm:inline">{whatsapp.label}</span>
             <Icon name="arrow_outward" className="text-xs" />
           </a>
         </div>

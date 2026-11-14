@@ -38,7 +38,11 @@ export const SUBSTRATES: Substrate[] = [
     title: 'Metales & Termos',
     description: 'Acero inoxidable, aluminio y gabinetes industriales.',
   },
-  { icon: 'forest', title: 'Maderas & Piel', description: 'MDF, maderas finas, cuero genuino y vinipiel.' },
+  {
+    icon: 'forest',
+    title: 'Maderas & Piel',
+    description: 'MDF, maderas finas, cuero genuino y vinipiel.',
+  },
   {
     icon: 'layers',
     title: 'Acrílicos & Plásticos',
@@ -82,7 +86,11 @@ export const CLIENTS: Client[] = [
 
 /** Sectores estratégicos atendidos. */
 export const SECTORS: Sector[] = [
-  { icon: 'precision_manufacturing', name: 'Manufactura Industrial', focus: 'Guardas & Señalética' },
+  {
+    icon: 'precision_manufacturing',
+    name: 'Manufactura Industrial',
+    focus: 'Guardas & Señalética',
+  },
   { icon: 'conveyor_belt', name: 'Líneas de Ensamble', focus: 'Componentes Acrílicos' },
   { icon: 'storefront', name: 'Empresas Comerciales', focus: 'POP & Branding Retail' },
   { icon: 'campaign', name: 'Agencias Publicitarias', focus: 'Maquila en Gran Formato' },
@@ -91,7 +99,11 @@ export const SECTORS: Sector[] = [
 
 /** Beneficios bajo el cotizador directo. */
 export const QUOTE_HIGHLIGHTS: QuoteHighlight[] = [
-  { icon: 'verified', title: 'Tolerancia Exacta', description: 'Precisión milimétrica y fichas técnicas.' },
+  {
+    icon: 'verified',
+    title: 'Tolerancia Exacta',
+    description: 'Precisión milimétrica y fichas técnicas.',
+  },
   { icon: 'schedule', title: 'Respuesta Rápida', description: '< 15 min en horario de planta.' },
   {
     icon: 'local_shipping',

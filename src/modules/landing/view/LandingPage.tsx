@@ -26,7 +26,11 @@ export function LandingPage() {
         quoteHref={quoteHref}
         catalogHref={anchor(SECTION_IDS.catalog)}
       />
-      <ServicesSection id={SECTION_IDS.catalog} services={vm.services} onOpenSpecs={vm.specModal.open} />
+      <ServicesSection
+        id={SECTION_IDS.catalog}
+        services={vm.services}
+        onOpenSpecs={vm.specModal.open}
+      />
       <CtaBanner
         title="¿Requieres maquila en volumen o desarrollos bajo norma?"
         description="Cotizaciones directas de taller para agencias, plantas industriales y proyectos corporativos."

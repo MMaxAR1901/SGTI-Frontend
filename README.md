@@ -37,12 +37,13 @@ src/
    │  ├─ useLandingVM.ts              carga contenido + expone el modal
    │  ├─ useSpecModalVM.ts            abrir/cerrar, servicio seleccionado, Esc/←/→, bloqueo de scroll
    │  ├─ useCarousel.ts               índice circular, next/prev/goTo
-   │  ├─ useNavBarVM.ts               enlaces + sección activa (scroll-spy)
+   │  ├─ useNavBarVM.ts               enlaces + sección activa (scroll-spy) + menú móvil
+   │  ├─ useMobileMenu.ts             estado del menú hamburguesa
    │  ├─ useLandingLayoutVM.ts        datos de TopBar, Footer y botón flotante
    │  └─ contact-links.ts             buildWhatsAppUrl / buildTelUrl / buildMailtoUrl
    └─ view/                           (View) presentación pura
       ├─ components/                  Icon, Logo, Button, Pill, SectionHeader/Eyebrow, Container,
-      │                               TopBar, NavBar, ServiceCard, FeatureCard/SubstrateCard,
+      │                               TopBar, NavBar, MobileMenu, ServiceCard, FeatureCard/SubstrateCard,
       │                               GalleryCard, ClientMarquee, SectorBadge, Footer,
       │                               FloatingWhatsApp, SpecModal, Carousel
       ├─ sections/                    Hero, Services, CtaBanner, Technology, Gallery,
@@ -50,6 +51,12 @@ src/
       ├─ layout/LandingLayout.tsx     aplica .theme-sgti + TopBar/NavBar/Footer/WhatsApp
       └─ LandingPage.tsx
 ```
+
+**Mobile-first.** Las clases base describen el teléfono y los prefijos de Tailwind amplían
+hacia arriba: `sm` (≥640px), `md` (≥768px), `lg` (≥1024px, navegación completa), `xl` (≥1280px).
+Ejemplo: `px-4 sm:px-6 lg:px-12`, `grid-cols-2 lg:grid-cols-4`. Por debajo de `lg` el header
+muestra el botón hamburguesa, que abre `MobileMenu` (panel lateral). Su estado vive en
+`vm/useMobileMenu.ts`: abrir/cerrar, Esc, bloqueo de scroll y cierre automático al pasar a `lg`.
 
 **Tokens.** Los nombres del diseño (`bg-primary-container`, `text-on-surface`, `text-headline-xl`,
 `font-label-tech`, `p-gutter`, `animate-marquee`…) se usan como cualquier utilidad de Tailwind.

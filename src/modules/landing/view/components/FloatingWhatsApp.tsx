@@ -5,22 +5,29 @@ interface FloatingWhatsAppProps {
   label?: string
 }
 
-/** Acceso flotante a un asesor técnico por WhatsApp (oculto en móvil muy pequeño). */
-export function FloatingWhatsApp({ href, label = 'Asesor Técnico en Línea' }: FloatingWhatsAppProps) {
+/**
+ * Acceso flotante a un asesor técnico por WhatsApp.
+ * Mobile-first: en teléfono es un botón circular; desde `sm` se expande a píldora con texto.
+ */
+export function FloatingWhatsApp({
+  href,
+  label = 'Asesor Técnico en Línea',
+}: FloatingWhatsAppProps) {
   return (
-    <div className="fixed bottom-6 right-6 z-40 flex items-end gap-3">
+    <div className="fixed right-4 bottom-4 z-40 flex items-end gap-3 sm:right-6 sm:bottom-6">
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="group hidden items-center gap-2.5 rounded-full border border-outline/40 bg-inverse-surface py-2.5 pl-3.5 pr-4 text-inverse-on-surface shadow-lg transition-all hover:border-primary-container sm:flex"
+        aria-label={label}
+        className="group border-outline/40 bg-inverse-surface text-inverse-on-surface hover:border-primary-container flex items-center gap-2.5 rounded-full border p-1.5 shadow-lg transition-all sm:py-2.5 sm:pr-4 sm:pl-3.5"
       >
-        <span className="h-2.5 w-2.5 animate-ping rounded-full bg-primary-container" />
-        <span className="font-body-sm text-body-sm font-semibold transition-colors group-hover:text-primary-fixed">
+        <span className="bg-primary-container hidden h-2.5 w-2.5 animate-ping rounded-full sm:block" />
+        <span className="font-body-sm text-body-sm group-hover:text-primary-fixed hidden font-semibold transition-colors sm:inline">
           {label}
         </span>
-        <span className="ml-1 flex h-8 w-8 items-center justify-center rounded-full bg-primary-container text-on-surface">
-          <Icon name="chat" filled className="text-lg" />
+        <span className="bg-primary-container text-on-surface flex h-12 w-12 items-center justify-center rounded-full sm:ml-1 sm:h-8 sm:w-8">
+          <Icon name="chat" filled className="text-2xl sm:text-lg" />
         </span>
       </a>
     </div>

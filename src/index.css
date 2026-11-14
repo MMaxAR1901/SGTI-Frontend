@@ -227,6 +227,8 @@
   }
   html:has(.theme-sgti) {
     scroll-behavior: smooth;
+    /* Compensa el header fijo al navegar por anclas (móvil ≈ 68px, escritorio ≈ 73px). */
+    scroll-padding-top: 4.5rem;
   }
 }
 

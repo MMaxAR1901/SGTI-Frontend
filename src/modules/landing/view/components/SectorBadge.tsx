@@ -12,15 +12,15 @@ export function SectorBadge({ sector, className }: SectorBadgeProps) {
   return (
     <div
       className={cn(
-        'flex flex-col items-center justify-center rounded-xl border border-outline-variant/60 bg-surface-container-lowest p-5 text-center shadow-xs',
+        'border-outline-variant/60 bg-surface-container-lowest flex flex-col items-center justify-center rounded-xl border p-4 text-center shadow-xs sm:p-5',
         className,
       )}
     >
-      <Icon name={sector.icon} className="mb-2 text-3xl text-primary" />
-      <span className="font-headline-sm text-sm font-bold uppercase text-on-surface">
+      <Icon name={sector.icon} className="text-primary mb-2 text-3xl" />
+      <span className="font-headline-sm text-on-surface text-xs font-bold uppercase sm:text-sm">
         {sector.name}
       </span>
-      <span className="mt-1 font-label-tech text-label-tech text-secondary">{sector.focus}</span>
+      <span className="font-label-tech text-label-tech text-secondary mt-1">{sector.focus}</span>
     </div>
   )
 }

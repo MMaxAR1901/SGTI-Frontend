@@ -29,15 +29,18 @@ export const SERVICES: Service[] = [
       images: [
         {
           url: IMAGES.workshop,
-          caption: 'Impresión de alta resolución en lona frontlit 13oz con acabado mate antirreflejante',
+          caption:
+            'Impresión de alta resolución en lona frontlit 13oz con acabado mate antirreflejante',
         },
         {
           url: IMAGES.dtfMetals,
-          caption: 'Vinil autoadhesivo de polímero fundido con laminado mate para muros y vehículos',
+          caption:
+            'Vinil autoadhesivo de polímero fundido con laminado mate para muros y vehículos',
         },
         {
           url: IMAGES.laserCnc,
-          caption: 'Backlight film traslúcido para cajas de luz corporativas y señalización nocturna',
+          caption:
+            'Backlight film traslúcido para cajas de luz corporativas y señalización nocturna',
         },
       ],
       specs: {
@@ -235,7 +238,8 @@ export const SERVICES: Service[] = [
       images: [
         {
           url: IMAGES.laserCnc,
-          caption: 'Corte por fibra láser y CO2 en placas de acrílico cristal y compuestos técnicos',
+          caption:
+            'Corte por fibra láser y CO2 en placas de acrílico cristal y compuestos técnicos',
         },
         {
           url: IMAGES.acrylicGuards,
@@ -264,7 +268,8 @@ export const SERVICES: Service[] = [
         },
         {
           title: 'Letras en Bloque 3D para Fachadas',
-          description: 'Logos tridimensionales con pernos roscados traseros para fijación oculta a muros.',
+          description:
+            'Logos tridimensionales con pernos roscados traseros para fijación oculta a muros.',
         },
       ],
     },

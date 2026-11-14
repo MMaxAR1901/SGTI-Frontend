@@ -12,7 +12,7 @@ interface CarouselProps {
 }
 
 const arrowClasses =
-  'absolute top-1/2 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-inverse-surface/75 text-inverse-on-surface shadow-md backdrop-blur-md transition-all hover:scale-105 hover:bg-inverse-surface active:scale-95'
+  'absolute top-1/2 flex h-9 w-9 sm:h-10 sm:w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-inverse-surface/75 text-inverse-on-surface shadow-md backdrop-blur-md transition-all hover:scale-105 hover:bg-inverse-surface active:scale-95'
 
 /** Carrusel de imágenes controlado (el estado vive en el ViewModel). */
 export function Carousel({
@@ -28,10 +28,10 @@ export function Carousel({
 
   return (
     <div
-      className="group/carousel relative overflow-hidden rounded-xl border border-outline-variant/40 bg-surface-container-low shadow-inner"
+      className="group/carousel border-outline-variant/40 bg-surface-container-low relative overflow-hidden rounded-xl border shadow-inner"
       aria-roledescription="carrusel"
     >
-      <div className="relative h-64 w-full overflow-hidden bg-black/5 sm:h-80 md:h-96">
+      <div className="relative h-56 w-full overflow-hidden bg-black/5 sm:h-80 md:h-96">
         <img
           key={current.url + index}
           src={current.url}
@@ -41,21 +41,34 @@ export function Carousel({
 
         {images.length > 1 && (
           <>
-            <button type="button" aria-label="Imagen anterior" onClick={onPrev} className={cn(arrowClasses, 'left-3')}>
+            <button
+              type="button"
+              aria-label="Imagen anterior"
+              onClick={onPrev}
+              className={cn(arrowClasses, 'left-3')}
+            >
               <Icon name="chevron_left" className="text-xl" />
             </button>
-            <button type="button" aria-label="Siguiente imagen" onClick={onNext} className={cn(arrowClasses, 'right-3')}>
+            <button
+              type="button"
+              aria-label="Siguiente imagen"
+              onClick={onNext}
+              className={cn(arrowClasses, 'right-3')}
+            >
               <Icon name="chevron_right" className="text-xl" />
             </button>
           </>
         )}
 
-        <div className="absolute inset-x-0 bottom-0 flex flex-col items-start justify-between gap-3 bg-linear-to-t from-inverse-surface/90 via-inverse-surface/60 to-transparent p-4 text-inverse-on-surface sm:flex-row sm:items-center">
+        <div className="from-inverse-surface/90 via-inverse-surface/60 text-inverse-on-surface absolute inset-x-0 bottom-0 flex flex-col items-start justify-between gap-3 bg-linear-to-t to-transparent p-3 sm:flex-row sm:items-center sm:p-4">
           <div>
-            <span className="block font-label-tech text-[10px] font-bold uppercase leading-[14px] tracking-wider text-primary-fixed">
+            <span className="font-label-tech text-primary-fixed block text-[10px] leading-[14px] font-bold tracking-wider uppercase">
               {captionLabel}
             </span>
-            <p className="mt-0.5 text-body-sm font-semibold text-surface-container-lowest" aria-live="polite">
+            <p
+              className="text-body-sm text-surface-container-lowest mt-0.5 font-semibold"
+              aria-live="polite"
+            >
               {current.caption}
             </p>
           </div>
@@ -70,8 +83,8 @@ export function Carousel({
                 className={cn(
                   'h-2.5 cursor-pointer rounded-full transition-all',
                   i === index
-                    ? 'w-6 bg-primary-container'
-                    : 'w-2.5 bg-surface-container-lowest/60 hover:bg-surface-container-lowest',
+                    ? 'bg-primary-container w-6'
+                    : 'bg-surface-container-lowest/60 hover:bg-surface-container-lowest w-2.5',
                 )}
               />
             ))}

@@ -23,7 +23,7 @@ interface FooterProps {
 
 function FooterHeading({ children }: { children: string }) {
   return (
-    <span className="mb-2 font-headline-sm text-base font-bold uppercase tracking-wider text-surface-container-lowest">
+    <span className="font-headline-sm text-surface-container-lowest mb-2 text-base font-bold tracking-wider uppercase">
       {children}
     </span>
   )
@@ -40,14 +40,19 @@ export function Footer({
   copyright,
 }: FooterProps) {
   return (
-    <footer id={id} className="mt-auto border-t border-outline/20 bg-inverse-surface text-inverse-on-surface">
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-6 py-12 lg:px-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-5">
+    <footer
+      id={id}
+      className="border-outline/20 bg-inverse-surface text-inverse-on-surface mt-auto border-t"
+    >
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 sm:py-12 lg:px-12">
+        <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-5">
           {/* Marca */}
-          <div className="flex flex-col items-start gap-4 lg:col-span-2">
+          <div className="col-span-2 flex flex-col items-start gap-4">
             <Logo variant="footer" tagline="Gráficas • Industriales" />
-            <p className="max-w-sm font-body-sm text-body-sm text-secondary-fixed-dim">{description}</p>
-            <div className="flex items-center gap-3 pt-2 text-secondary-fixed-dim">
+            <p className="font-body-sm text-body-sm text-secondary-fixed-dim max-w-sm">
+              {description}
+            </p>
+            <div className="text-secondary-fixed-dim flex items-center gap-3 pt-2">
               {socials.map((s) => (
                 <a
                   key={s.label}
@@ -55,7 +60,7 @@ export function Footer({
                   title={s.label}
                   aria-label={s.label}
                   {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg border border-outline/40 bg-inverse-surface text-primary-fixed transition-colors hover:bg-primary-container hover:text-on-surface"
+                  className="border-outline/40 bg-inverse-surface text-primary-fixed hover:bg-primary-container hover:text-on-surface flex h-9 w-9 items-center justify-center rounded-lg border transition-colors"
                 >
                   <Icon name={s.icon} filled={s.filled} className="text-lg" />
                 </a>
@@ -72,8 +77,8 @@ export function Footer({
                   key={link.label}
                   href={link.href}
                   className={cn(
-                    'font-body-sm text-body-sm transition-colors hover:text-inverse-on-surface',
-                    link.highlight ? 'font-bold text-primary-fixed' : 'text-secondary-fixed-dim',
+                    'font-body-sm text-body-sm hover:text-inverse-on-surface transition-colors',
+                    link.highlight ? 'text-primary-fixed font-bold' : 'text-secondary-fixed-dim',
                   )}
                 >
                   {link.label}
@@ -83,34 +88,40 @@ export function Footer({
           ))}
 
           {/* Taller & ventas */}
-          <div className="flex flex-col gap-3">
+          <div className="col-span-2 flex flex-col gap-3 lg:col-span-1">
             <FooterHeading>Taller & Ventas</FooterHeading>
-            <div className="flex items-start gap-2 font-body-sm text-body-sm text-secondary-fixed-dim">
-              <Icon name="location_on" className="mt-0.5 text-lg text-primary-fixed" />
+            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-start gap-2">
+              <Icon name="location_on" className="text-primary-fixed mt-0.5 text-lg" />
               <span>{contact.address}</span>
             </div>
-            <div className="flex items-center gap-2 font-body-sm text-body-sm text-secondary-fixed-dim">
-              <Icon name="phone_in_talk" className="text-lg text-primary-fixed" />
+            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-center gap-2">
+              <Icon name="phone_in_talk" className="text-primary-fixed text-lg" />
               <span>{contact.phone}</span>
             </div>
-            <div className="flex items-center gap-2 font-body-sm text-body-sm text-secondary-fixed-dim">
-              <Icon name="mail" className="text-lg text-primary-fixed" />
+            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-center gap-2">
+              <Icon name="mail" className="text-primary-fixed text-lg" />
               <span>{contact.email}</span>
             </div>
-            <div className="pt-1 font-label-tech text-label-tech text-primary-fixed">{contact.hours}</div>
+            <div className="font-label-tech text-label-tech text-primary-fixed pt-1">
+              {contact.hours}
+            </div>
           </div>
         </div>
 
         {/* Barra inferior */}
-        <div className="flex flex-col items-center justify-between gap-4 border-t border-outline/30 pt-6 font-label-tech text-label-tech text-secondary-fixed-dim md:flex-row">
+        <div className="border-outline/30 font-label-tech text-label-tech text-secondary-fixed-dim flex flex-col items-center justify-between gap-4 border-t pt-6 text-center md:flex-row md:text-left">
           <p>{copyright}</p>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
-              <a key={link.label} href={link.href} className="transition-colors hover:text-primary-fixed">
+              <a
+                key={link.label}
+                href={link.href}
+                className="hover:text-primary-fixed transition-colors"
+              >
                 {link.label}
               </a>
             ))}
-            <span className="font-bold text-primary-fixed">Hecho en México</span>
+            <span className="text-primary-fixed font-bold">Hecho en México</span>
           </div>
         </div>
       </div>

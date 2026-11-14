@@ -80,7 +80,9 @@ export function Button({
         />
       )}
       <span>{children}</span>
-      {trailingIcon && <Icon name={trailingIcon} className={cn('text-base', trailingIconClassName)} />}
+      {trailingIcon && (
+        <Icon name={trailingIcon} className={cn('text-base', trailingIconClassName)} />
+      )}
     </>
   )
 

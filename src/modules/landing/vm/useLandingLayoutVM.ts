@@ -9,13 +9,23 @@ export function useLandingLayoutVM() {
       status: 'Planta & Taller Operativo 100%',
       phone: CONTACT_LINKS.phone,
       email: CONTACT_LINKS.quotesEmail,
-      whatsapp: { href: CONTACT_LINKS.whatsapp, label: 'Cotizaciones Express en WhatsApp' },
+      whatsapp: {
+        href: CONTACT_LINKS.whatsapp,
+        label: 'Cotizaciones Express en WhatsApp',
+        shortLabel: 'WhatsApp',
+      },
     },
     footer: {
       id: SECTION_IDS.contact,
       description: `${CONTACT.company.legalName}. Fabricantes y maquiladores de alta precisión en impresión digital, DTF UV, corte CNC, bordado corporativo y desarrollo de guardas para maquinaria.`,
       socials: [
-        { href: CONTACT_LINKS.whatsapp, label: 'WhatsApp', icon: 'chat', filled: true, external: true },
+        {
+          href: CONTACT_LINKS.whatsapp,
+          label: 'WhatsApp',
+          icon: 'chat',
+          filled: true,
+          external: true,
+        },
         { href: CONTACT_LINKS.generalEmail.href, label: 'Correo', icon: 'mail' },
         { href: CONTACT_LINKS.phone.href, label: 'Teléfono', icon: 'call' },
       ],

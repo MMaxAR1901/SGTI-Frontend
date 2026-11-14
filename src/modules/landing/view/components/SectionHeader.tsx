@@ -14,7 +14,7 @@ export function Eyebrow({ children, icon, tone = 'primary', className }: Eyebrow
   return (
     <div
       className={cn(
-        'mb-2 inline-flex items-center gap-2 font-label-tech text-label-tech font-bold uppercase tracking-widest',
+        'font-label-tech text-label-tech mb-2 inline-flex items-center gap-2 font-bold tracking-widest uppercase',
         tone === 'primary' ? 'text-primary' : 'text-secondary',
         className,
       )}
@@ -54,7 +54,7 @@ export function SectionHeader({
   const heading = (
     <Heading
       className={cn(
-        'font-headline-xl text-headline-xl-mobile font-bold text-on-surface lg:text-headline-xl',
+        'font-headline-xl text-headline-xl-mobile text-on-surface lg:text-headline-xl font-bold',
         titleClassName,
       )}
     >
@@ -68,7 +68,9 @@ export function SectionHeader({
         {eyebrow}
         {heading}
         {description && (
-          <p className={cn('mt-3 text-body-md text-secondary', descriptionClassName)}>{description}</p>
+          <p className={cn('text-body-md text-secondary mt-3', descriptionClassName)}>
+            {description}
+          </p>
         )}
       </div>
     )
@@ -81,7 +83,9 @@ export function SectionHeader({
         {heading}
       </div>
       {description ? (
-        <p className={cn('max-w-md font-body-md text-body-md text-secondary', descriptionClassName)}>
+        <p
+          className={cn('font-body-md text-body-md text-secondary max-w-md', descriptionClassName)}
+        >
           {description}
         </p>
       ) : (
