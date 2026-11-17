@@ -6,8 +6,7 @@ import {
   CtaBanner,
   GallerySection,
   HeroSection,
-  QuoteSection,
-  SectorsSection,
+  QuoteSection,  
   ServicesSection,
   TechnologySection,
   TrajectorySection,
@@ -46,7 +45,7 @@ export function LandingPage() {
         whatsappHref={CONTACT_LINKS.whatsappQuote}
         phone={CONTACT_LINKS.phone}
       />
-      <SectorsSection sectors={vm.sectors} />
+      
       <SpecModal vm={vm.specModal} />
     </>
   )

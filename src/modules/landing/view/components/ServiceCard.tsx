@@ -14,7 +14,7 @@ export function ServiceCard({ service, onOpenSpecs }: ServiceCardProps) {
   return (
     <article
       className={cn(
-        'group bg-surface-container-lowest hover:border-primary relative flex flex-col justify-between rounded-xl p-6 shadow-xs transition-all sm:p-8',
+        'group bg-surface-container-lowest hover:border-primary relative flex flex-col justify-between rounded-xl p-6 shadow-xs transition-all sm:p-8 w-[250px] h-[350px] lg:h-auto lg:w-auto',
         featured ? 'border-primary-container border-2' : 'border-outline-variant/40 border',
       )}
     >

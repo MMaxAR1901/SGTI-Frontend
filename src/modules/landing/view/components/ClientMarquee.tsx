@@ -20,9 +20,9 @@ function ClientChip({ client }: { client: Client }) {
 
 interface ClientMarqueeProps {
   clients: Client[]
-  /** Color del degradado lateral; debe coincidir con el fondo de la sección. */
   fadeFromClassName?: string
 }
+
 
 /** Carrusel infinito de clientes. Se pausa al pasar el cursor. */
 export function ClientMarquee({
@@ -54,3 +54,4 @@ export function ClientMarquee({
     </div>
   )
 }
+

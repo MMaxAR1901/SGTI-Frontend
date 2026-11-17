@@ -1,5 +1,5 @@
 import type { Service, ServiceId } from '../../model/landing.types'
-import { Container, Eyebrow, SectionHeader, ServiceCard } from '../components'
+import { Container, Eyebrow, SectionHeader, ServiceMarquee } from '../components'
 
 interface ServicesSectionProps {
   id: string
@@ -17,11 +17,11 @@ export function ServicesSection({ id, services, onOpenSpecs }: ServicesSectionPr
         titleClassName="tracking-tight"
         description="Módulos integrales para corporativos, plantas de manufactura, agencias publicitarias y proyectos especiales bajo norma."
       />
-      <div className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-        {services.map((service) => (
-          <ServiceCard key={service.id} service={service} onOpenSpecs={onOpenSpecs} />
-        ))}
-      </div>
+      <ServiceMarquee
+        id={id}
+        services={services}
+        onOpenSpecs={onOpenSpecs}
+      />
     </Container>
   )
 }
