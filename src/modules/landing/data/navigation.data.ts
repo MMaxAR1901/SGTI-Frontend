@@ -14,11 +14,10 @@ export const anchor = (id: string) => `#${id}`
 
 /** Enlaces del menú principal (header). */
 export const MAIN_NAV: NavLink[] = [
-  { label: 'Inicio', href: anchor(SECTION_IDS.home) },
+
   { label: 'Catálogo de Servicios', href: anchor(SECTION_IDS.catalog) },
   { label: 'Tecnología & Materiales', href: anchor(SECTION_IDS.technology) },
-  { label: 'Cotizador Rápido', href: anchor(SECTION_IDS.quote) },
-  { label: 'Contacto', href: anchor(SECTION_IDS.contact) },
+  
   { label: 'Nosotros', href: anchor(SECTION_IDS.about) },
 ]
 

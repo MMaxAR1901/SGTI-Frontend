@@ -57,29 +57,14 @@ export function NavBar({
           </nav>
 
           <div className="flex items-center gap-1.5 sm:gap-3">
-            <a
-              href={phone.href}
-              title="Llamada Directa"
-              aria-label="Llamada Directa"
-              className="text-secondary hover:bg-surface-container hover:text-primary hidden rounded-lg p-2 transition-colors sm:inline-flex"
-            >
-              <Icon name="phone_in_talk" />
-            </a>
-            <a
-              href={email.href}
-              title="Enviar Especificaciones"
-              aria-label="Enviar Especificaciones"
-              className="text-secondary hover:bg-surface-container hover:text-primary hidden rounded-lg p-2 transition-colors sm:inline-flex"
-            >
-              <Icon name="mail" />
-            </a>
+         
             <Button
               href={quoteHref}
               leadingIcon="request_quote"
-              title="Cotizar Proyecto"
+              title="Contactanos"
               className="gap-0 px-3 shadow-xs sm:gap-2 sm:px-5"
             >
-              <span className="sr-only sm:not-sr-only">Cotizar Proyecto</span>
+              <span className="sr-only sm:not-sr-only">Contactanos</span>
             </Button>
             <button
               ref={toggleRef}

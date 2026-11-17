@@ -15,4 +15,4 @@ export { Eyebrow, SectionHeader } from './SectionHeader'
 export { SectorBadge } from './SectorBadge'
 export { ServiceCard } from './ServiceCard'
 export { SpecModal } from './SpecModal'
-export { TopBar } from './TopBar'
+

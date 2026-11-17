@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom'
 import { useLandingLayoutVM } from '../../vm/useLandingLayoutVM'
 import { useNavBarVM } from '../../vm/useNavBarVM'
-import { FloatingWhatsApp, Footer, NavBar, TopBar } from '../components'
+import { FloatingWhatsApp, Footer, NavBar,} from '../components'
 
 /**
  * Layout de la landing: aplica el tema SGTI (`.theme-sgti`) y monta
@@ -13,7 +13,6 @@ export function LandingLayout() {
 
   return (
     <div className="theme-sgti bg-background font-body-md text-on-surface flex min-h-screen flex-col antialiased">
-      <TopBar {...vm.topBar} />
       <NavBar {...nav} />
       <main id="main" className="flex-1">
         <Outlet />
