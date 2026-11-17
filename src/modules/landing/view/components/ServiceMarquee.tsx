@@ -21,7 +21,7 @@ export function ServiceMarquee({
         className={`pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-linear-to-l ${fadeFromClassName} to-transparent sm:w-24 lg:w-48`}
       />
       {/* Dos copias idénticas: la animación desplaza -50% para un bucle sin saltos. */}
-      <div className="animate-marquee flex w-max items-center gap-4 py-4 hover:[animation-play-state:paused] sm:gap-8">
+      <div className="animate-marquee-services flex w-max items-center gap-4 py-4 hover:[animation-play-state:paused] sm:gap-8">
         {[0, 1].map((copy) => (
           <div
             key={copy}
