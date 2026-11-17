@@ -11,3 +11,6 @@ graphify-out/manifest.json
 graphify-out/.graphify_*
 graphify-out/.graph.html.stale
 graphify-out/.fuse_hidden*
+
+# Local Netlify folder
+.netlify
