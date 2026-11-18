@@ -54,12 +54,12 @@ export const SUBSTRATES: Substrate[] = [
 /** Pasos de "Cómo trabajamos". */
 export const PROCESS_STEPS: ProcessStep[] = [
   {
-    title: 'Envía tu archivo',
-    description: 'PDF con 3 mm de rebase. Si no lo tienes listo, lo adaptamos por ti.',
+    title: 'Contacta a nuestro equipo',
+    description: 'Nuestros ingenieros de planta revisan tu proyecto y te asesoran.',
   },
   {
-    title: 'Revisa la prueba digital',
-    description: 'Validamos medidas, colores y rebases antes de producir.',
+    title: 'Recibe tu cotización',
+    description: 'Verifica las especificaciones y el costo estimado.',
   },
   {
     title: 'Recibe tu pedido',
