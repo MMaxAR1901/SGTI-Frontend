@@ -7,46 +7,60 @@ interface LogoProps {
   tagline?: string
   /** `header`: limpio; `footer`: encapsulado en tarjeta blanca sobre fondo oscuro. */
   variant?: 'header' | 'footer'
+  /** Oculta la línea descriptiva (p. ej. dentro del menú móvil). */
+  hideTagline?: boolean
   href?: string
+  onClick?: () => void
   className?: string
 }
 
-/** Marca SGTI: isotipo + nombre + tagline técnico. */
+/**
+ * Marca SGTI: emblema circular + nombre + tagline técnico.
+ * `IMAGES.logo` es el logotipo vertical completo (emblema arriba, texto abajo); el recorte
+ * cuadrado con `object-top` deja solo el emblema, que es lo que se lee a 48px.
+ */
 export function Logo({
   tagline = 'Gráficas • Tecnológicas • Industriales',
   variant = 'header',
+  hideTagline = false,
   href = '#',
+  onClick,
   className,
 }: LogoProps) {
   return (
     <a
       href={href}
-      aria-label={`${CONTACT.company.shortName} — inicio`}
+      onClick={onClick}
+      aria-label={`${CONTACT.company.shortName}, inicio`}
       className={cn(
-        'flex items-center gap-3',
-        variant === 'header'
-          ? 'group focus:ring-primary-container shrink-0 rounded focus:ring-2 focus:outline-none'
-          : 'border-outline/30 bg-surface-container-lowest rounded-lg border p-2',
+        'flex shrink-0 items-center gap-3 rounded-lg',
+        variant === 'footer' && 'border-line self-start border bg-white py-2 pr-4 pl-2',
         className,
       )}
     >
-      <div className="flex h-12 w-12 items-center justify-center">
-        <img src={IMAGES.logo} alt="" className="h-12 w-auto object-contain" />
-      </div>
-      <div className="flex flex-col text-left">
-        <span className="font-headline-sm text-headline-sm text-on-surface leading-none font-bold tracking-tight">
+      <img
+        src={IMAGES.logo}
+        alt=""
+        width={48}
+        height={48}
+        className="h-11 w-11 object-cover object-top sm:h-12 sm:w-12"
+      />
+      <span className="flex flex-col text-left">
+        <span className="text-on-surface text-lg leading-5 font-bold tracking-tight">
           {CONTACT.company.shortName}
         </span>
-        <span
-          className={cn(
-            'font-label-tech text-secondary mt-1 text-[10px] leading-[14px] font-bold tracking-widest uppercase',
-            // En el header móvil se oculta para que el CTA quepa sin scroll horizontal.
-            variant === 'header' && 'hidden sm:block',
-          )}
-        >
-          {tagline}
-        </span>
-      </div>
+        {!hideTagline && (
+          <span
+            className={cn(
+              'text-secondary mt-1 text-[10px] leading-[14px] font-bold tracking-[0.14em] uppercase',
+              // En el header móvil se oculta para que el CTA y la hamburguesa quepan.
+              variant === 'header' && 'hidden sm:block',
+            )}
+          >
+            {tagline}
+          </span>
+        )}
+      </span>
     </a>
   )
 }

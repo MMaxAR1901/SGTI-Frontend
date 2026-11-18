@@ -1,30 +1,46 @@
 import type { Substrate } from '../../model/landing.types'
-import { Container, Eyebrow, SectionHeader, SubstrateCard } from '../components'
+import { Button, Container, Eyebrow, Icon, SubstrateCard } from '../components'
 
 interface TechnologySectionProps {
   id: string
   substrates: Substrate[]
+  /** Destino del botón de ficha técnica (hoy, el cotizador). */
+  datasheetHref: string
 }
 
-/** Innovación DTF UV: "imprime en cualquier superficie". */
-export function TechnologySection({ id, substrates }: TechnologySectionProps) {
+const BENEFITS = [
+  'Curado UV instantáneo, sin tiempos de secado',
+  'Relieve táctil y barniz selectivo',
+  'Resistente a rayones, agua y uso diario',
+]
+
+/** Innovación DTF UV: texto + beneficios a la izquierda, sustratos compatibles a la derecha. */
+export function TechnologySection({ id, substrates, datasheetHref }: TechnologySectionProps) {
   return (
-    <section
-      id={id}
-      className="border-outline-variant/30 bg-surface-container-low border-y py-12 sm:py-16 lg:py-24"
-    >
-      <Container className="sm:py-8 lg:py-12">
-        <SectionHeader
-          align="center"
-          className="mx-auto mb-10 max-w-2xl sm:mb-16"
-          eyebrow={
-            <Eyebrow className="font-body-md block text-xs">Tecnología de Vanguardia</Eyebrow>
-          }
-          title="Impresión DTF UV sin Límites"
-          titleClassName="font-body-md text-headline-xl-mobile sm:text-headline-xl lg:text-headline-xl"
-          description="Adherencia inmediata con curado instantáneo sobre cualquier superficie sin necesidad de tratamientos químicos previos."
-        />
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 lg:grid-cols-4">
+    <section id={id} className="border-line w-full border-y bg-white">
+      <Container className="grid grid-cols-1 items-center gap-10 py-14 sm:py-24 lg:grid-cols-2 lg:gap-14">
+        <div>
+          <Eyebrow>Tecnología y materiales</Eyebrow>
+          <h2 className="text-headline-xl-mobile text-on-surface lg:text-headline-xl mt-1 mb-4 font-bold">
+            Imprime sobre casi cualquier superficie
+          </h2>
+          <p className="text-secondary mb-6 max-w-[520px] text-base leading-[26px] sm:text-lg sm:leading-7">
+            El DTF UV cura al instante y se adhiere sin primer a vidrio, metal, madera y plástico.
+            Ideal para piezas promocionales, herramientas y señalética.
+          </p>
+          <ul className="mb-8 flex flex-col gap-3">
+            {BENEFITS.map((benefit) => (
+              <li key={benefit} className="text-on-surface flex items-center gap-3 text-[15px]">
+                <Icon name="check_circle" className="text-primary text-xl" />
+                {benefit}
+              </li>
+            ))}
+          </ul>
+          <Button href={datasheetHref} variant="surface" size="md" trailingIcon="arrow_forward">
+            Solicitar ficha técnica
+          </Button>
+        </div>
+        <div className="grid grid-cols-2 gap-3 sm:gap-4">
           {substrates.map((s) => (
             <SubstrateCard
               key={s.title}

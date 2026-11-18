@@ -2,6 +2,7 @@ import type {
   Client,
   GalleryItem,
   HeroContent,
+  ProcessStep,
   QuoteHighlight,
   Sector,
   Substrate,
@@ -9,44 +10,60 @@ import type {
 import { IMAGES } from './images.data'
 
 export const HERO: HeroContent = {
-  eyebrow: 'Tecnología DTF UV & Manufactura Industrial',
-  titleLead: 'Soluciones Gráficas e Industriales de ',
-  titleHighlight: 'Máxima Precisión.',
+  eyebrow: 'DTF UV y manufactura industrial',
+  titleLead: 'Soluciones gráficas e industriales de ',
+  titleHighlight: 'máxima precisión.',
   description:
-    'Fabricación de guardas en acrílico, impresión DTF UV directa de alta adherencia, gran formato y bordados industriales con tolerancias exactas.',
+    'Guardas en acrílico, impresión DTF UV de alta adherencia, gran formato y bordado industrial con tolerancias exactas.',
   stats: [
-    { value: '+15 Años', label: 'Experiencia de Planta' },
-    { value: '24-48 h', label: 'Respuesta Técnica', highlight: true },
-    { value: '100%', label: 'Garantía de Sustrato' },
+    { value: '+15 años', label: 'Experiencia de planta' },
+    { value: '24–48 h', label: 'Respuesta técnica' },
+    { value: '100%', label: 'Garantía de sustrato' },
   ],
   image: {
     src: IMAGES.workshop,
     alt: 'Taller de manufactura industrial de precisión con impresora DTF UV',
   },
-  imageCaption: { label: 'Corte CNC & DTF UV', detail: '±0.05 mm precisión' },
+  imageCaption: { label: 'Corte CNC y DTF UV', detail: '±0.05 mm' },
 }
 
 /** Sustratos compatibles con DTF UV. */
 export const SUBSTRATES: Substrate[] = [
   {
     icon: 'wine_bar',
-    title: 'Vidrio & Cerámica',
+    title: 'Vidrio y cerámica',
     description: 'Botellas, tarros y cristalería comercial con relieve táctil.',
   },
   {
     icon: 'construction',
-    title: 'Metales & Termos',
+    title: 'Metales y termos',
     description: 'Acero inoxidable, aluminio y gabinetes industriales.',
   },
   {
     icon: 'forest',
-    title: 'Maderas & Piel',
+    title: 'Maderas y piel',
     description: 'MDF, maderas finas, cuero genuino y vinipiel.',
   },
   {
     icon: 'layers',
-    title: 'Acrílicos & Plásticos',
+    title: 'Acrílicos y plásticos',
     description: 'Acrílico cristal, estireno y polímeros de ingeniería.',
+  },
+]
+
+/** Pasos de "Cómo trabajamos". */
+export const PROCESS_STEPS: ProcessStep[] = [
+  {
+    title: 'Contacta a nuestro equipo',
+    description: 'Nuestros ingenieros de planta revisan tu proyecto y te asesoran.',
+  },
+  {
+    title: 'Recibe tu cotización',
+    description: 'Verifica las especificaciones y el costo estimado.',
+  },
+  {
+    title: 'Recibe tu pedido',
+    description: 'Producción en planta y entrega o recolección en sucursal.',
   },
 ]
 

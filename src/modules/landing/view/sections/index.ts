@@ -1,6 +1,7 @@
 export { CtaBanner } from './CtaBanner'
 export { GallerySection } from './GallerySection'
 export { HeroSection } from './HeroSection'
+export { ProcessSection } from './ProcessSection'
 export { QuoteSection } from './QuoteSection'
 export { SectorsSection } from './SectorsSection'
 export { ServicesSection } from './ServicesSection'

@@ -7,17 +7,15 @@ interface FeatureCardProps {
   description: string
 }
 
-/** Tarjeta centrada con ícono circular (sustratos compatibles, características). */
+/** Tile V2 alineado a la izquierda (sustratos compatibles, características). */
 export function FeatureCard({ icon, title, description }: FeatureCardProps) {
   return (
-    <div className="border-outline-variant/40 bg-surface-container-lowest rounded-xl border p-4 text-center sm:p-6">
-      <div className="bg-surface-container-low text-primary mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full sm:mb-4 sm:h-12 sm:w-12">
-        <Icon name={icon} className="text-xl sm:text-2xl" />
+    <div className="border-line bg-surface-container-low flex flex-col items-start gap-3 rounded-xl border p-4 sm:p-6">
+      <div className="bg-primary/10 text-primary flex h-10 w-10 items-center justify-center rounded-lg">
+        <Icon name={icon} className="text-[22px]" />
       </div>
-      <h4 className="text-label-lg sm:text-headline-sm text-on-surface mb-1 font-bold sm:mb-2">
-        {title}
-      </h4>
-      <p className="text-secondary sm:text-body-sm text-xs">{description}</p>
+      <h3 className="text-on-surface text-[15px] leading-6 font-semibold">{title}</h3>
+      <p className="text-secondary text-[13px] leading-5">{description}</p>
     </div>
   )
 }
