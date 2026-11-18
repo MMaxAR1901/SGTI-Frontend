@@ -27,7 +27,7 @@ export const CONTACT = {
     general: 'contacto@sgti.com.mx',
   },
   address: 'Parque Industrial Valle de México, Naves de Manufactura #12, CDMX / EDOMEX.',
-  businessHours: 'LUNES A VIERNES: 08:30 - 18:30 HRS',
+  businessHours: 'Lunes a viernes: 9:00 a 18:00 h',
 } as const
 
 export type ContactConfig = typeof CONTACT

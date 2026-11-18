@@ -123,6 +123,12 @@ export interface Sector {
   focus: string
 }
 
+/** Paso del proceso de trabajo ("Cómo trabajamos"). */
+export interface ProcessStep {
+  title: string
+  description: string
+}
+
 export interface QuoteHighlight {
   icon: IconName
   title: string
@@ -138,4 +144,5 @@ export interface LandingContent {
   clients: Client[]
   sectors: Sector[]
   quoteHighlights: QuoteHighlight[]
+  process: ProcessStep[]
 }

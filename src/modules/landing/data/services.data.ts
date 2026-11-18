@@ -17,7 +17,7 @@ export const SERVICES: Service[] = [
   {
     id: 'gran-formato',
     icon: 'print',
-    name: 'Gran Formato & Digital',
+    name: 'Gran formato y digital',
     summary:
       'Lonas frontlit, viniles autoadhesivos de alta durabilidad y señalización corporativa de gran impacto.',
     ctaLabel: 'Consultar especificaciones',
@@ -127,7 +127,7 @@ export const SERVICES: Service[] = [
   {
     id: 'serigrafia',
     icon: 'format_paint',
-    name: 'Serigrafía Técnica',
+    name: 'Serigrafía técnica',
     summary:
       'Tirajes medianos y masivos con tintas epóxicas resistentes al calor, la intemperie y solventes químicos.',
     ctaLabel: 'Consultar especificaciones',
@@ -176,7 +176,7 @@ export const SERVICES: Service[] = [
   {
     id: 'bordados',
     icon: 'dry_cleaning',
-    name: 'Bordados Industriales',
+    name: 'Bordados industriales',
     summary:
       'Bordado computarizado de alta densidad para uniformes de planta, chalecos y camisolas de seguridad.',
     ctaLabel: 'Consultar especificaciones',
@@ -226,7 +226,7 @@ export const SERVICES: Service[] = [
   {
     id: 'corte-cnc',
     icon: 'precision_manufacturing',
-    name: 'Corte Láser & CNC',
+    name: 'Corte láser y CNC',
     summary:
       'Corte y maquinado de precisión en acrílicos, MDF y polímeros técnicos para displays y piezas a medida.',
     ctaLabel: 'Consultar especificaciones',
@@ -277,7 +277,7 @@ export const SERVICES: Service[] = [
   {
     id: 'guardas',
     icon: 'shield',
-    name: 'Guardas en Acrílico',
+    name: 'Guardas en acrílico',
     summary:
       'Diseño y fabricación de mamparas de seguridad y protecciones perimetrales para líneas de ensamble.',
     ctaLabel: 'Consultar especificaciones',

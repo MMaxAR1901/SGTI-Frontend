@@ -6,26 +6,22 @@ export type ButtonVariant = 'accent' | 'primary' | 'surface' | 'soft' | 'ghost'
 export type ButtonSize = 'sm' | 'md' | 'lg'
 
 const variants: Record<ButtonVariant, string> = {
-  /** CTA industrial: menta → verde profundo al hover. */
-  accent:
-    'border border-primary-container bg-primary-container font-bold text-on-surface hover:bg-primary hover:text-on-primary active:scale-95',
-  /** Verde profundo → menta al hover. */
-  primary:
-    'bg-primary font-semibold text-on-primary shadow-sm hover:bg-primary-container hover:text-on-surface',
-  /** Blanco con borde fino. */
-  surface:
-    'border border-outline-variant/40 bg-surface-container-lowest font-semibold text-on-surface hover:bg-surface-container',
-  /** Azul muy claro con borde fino. */
-  soft: 'border border-outline-variant/40 bg-surface-container-low font-semibold text-on-surface hover:bg-surface-container',
+  /** Menta: solo el CTA de cotizar/contactar (uno por vista). */
+  accent: 'bg-primary-container text-on-surface hover:bg-inverse-primary',
+  /** Verde SGTI: acción principal de cada bloque. */
+  primary: 'bg-primary text-on-primary hover:bg-primary-hover',
+  /** Blanco con borde de control: alternativa junto al primario. */
+  surface: 'border border-control bg-white text-on-surface hover:border-on-surface',
+  /** Papel con borde hairline. */
+  soft: 'border border-line bg-surface-container-low text-on-surface hover:bg-surface-container',
   /** Secundario neutro (p. ej. "Cerrar"). */
-  ghost:
-    'border border-outline-variant/60 font-semibold text-secondary hover:bg-surface-container hover:text-on-surface',
+  ghost: 'border border-line text-secondary hover:bg-surface-container hover:text-on-surface',
 }
 
 const sizes: Record<ButtonSize, string> = {
-  sm: 'gap-2 rounded-lg px-5 py-2.5',
-  md: 'gap-2 rounded-lg px-8 py-3.5',
-  lg: 'gap-3 rounded-xl px-8 py-4',
+  sm: 'min-h-9 gap-2 rounded-lg px-4 py-1.5',
+  md: 'min-h-11 gap-2 rounded-lg px-6 py-2',
+  lg: 'min-h-12 gap-2 rounded-lg px-6 py-2.5 text-base',
 }
 
 interface ButtonProps {
@@ -64,7 +60,7 @@ export function Button({
   title,
 }: ButtonProps) {
   const classes = cn(
-    'inline-flex cursor-pointer items-center justify-center font-label-lg text-label-lg transition-all duration-150',
+    'inline-flex cursor-pointer items-center justify-center text-center text-sm font-semibold transition-colors duration-150',
     variants[variant],
     sizes[size],
     className,
