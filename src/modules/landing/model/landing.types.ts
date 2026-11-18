@@ -80,6 +80,43 @@ export interface Service {
   }
 }
 
+/* ─── Pagina detalle de servicio ─────────────────────────────────────────────── */
+
+export interface ServiceProduct {
+  id: string
+  badge?: string            // "ESTÁNDAR", "OFERTA"...
+  code: string              // "REF-AC-001"
+  name: string              // "Acrílico Cell Cast Cristal"
+  description: string
+  image: ImageAsset
+  specs: { label: string; value: string }[]   // "Espesores: 2mm a 25mm"
+}
+
+export interface ServiceHighlightBlock {
+  eyebrow: string
+  title: string
+  description: string
+  image: ImageAsset
+  facts: { label: string; value: string }[]   // "ÁREA DE CORTE: 1.5 x 3.0 m"
+}
+
+export interface Branch {
+  name: string
+  address: string
+  phone: string
+}
+
+export interface ServicePage {
+  serviceId: ServiceId
+  title: string             // "Productos & Sustratos"
+  description: string
+  products: ServiceProduct[]
+  highlight?: ServiceHighlightBlock   // "Maquinado de Precisión Milimétrica"
+  branches: Branch[]
+}
+
+
+
 /* ─── Contenido de secciones ─────────────────────────────────────────────── */
 
 export interface Stat {
@@ -123,6 +160,12 @@ export interface Sector {
   focus: string
 }
 
+/** Paso del proceso de trabajo ("Cómo trabajamos"). */
+export interface ProcessStep {
+  title: string
+  description: string
+}
+
 export interface QuoteHighlight {
   icon: IconName
   title: string
@@ -138,4 +181,5 @@ export interface LandingContent {
   clients: Client[]
   sectors: Sector[]
   quoteHighlights: QuoteHighlight[]
+  process: ProcessStep[]
 }

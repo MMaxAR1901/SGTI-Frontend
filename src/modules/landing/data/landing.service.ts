@@ -1,6 +1,14 @@
 import { hasApi, http } from '@/lib/http'
 import type { LandingContent, Service, ServiceId } from '../model/landing.types'
-import { CLIENTS, GALLERY, HERO, QUOTE_HIGHLIGHTS, SECTORS, SUBSTRATES } from './content.data'
+import {
+  CLIENTS,
+  GALLERY,
+  HERO,
+  PROCESS_STEPS,
+  QUOTE_HIGHLIGHTS,
+  SECTORS,
+  SUBSTRATES,
+} from './content.data'
 import { SERVICES } from './services.data'
 
 /** Contenido estático (mock). También sirve como valor inicial mientras responde la API. */
@@ -12,6 +20,7 @@ export const LANDING_CONTENT: LandingContent = {
   clients: CLIENTS,
   sectors: SECTORS,
   quoteHighlights: QUOTE_HIGHLIGHTS,
+  process: PROCESS_STEPS,
 }
 
 /**

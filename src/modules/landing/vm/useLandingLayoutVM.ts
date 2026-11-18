@@ -17,27 +17,16 @@ export function useLandingLayoutVM() {
     },
     footer: {
       id: SECTION_IDS.contact,
-      description: `${CONTACT.company.legalName}. Fabricantes y maquiladores de alta precisión en impresión digital, DTF UV, corte CNC, bordado corporativo y desarrollo de guardas para maquinaria.`,
-      socials: [
-        {
-          href: CONTACT_LINKS.whatsapp,
-          label: 'WhatsApp',
-          icon: 'chat',
-          filled: true,
-          external: true,
-        },
-        { href: CONTACT_LINKS.generalEmail.href, label: 'Correo', icon: 'mail' },
-        { href: CONTACT_LINKS.phone.href, label: 'Teléfono', icon: 'call' },
-      ],
+      description: 'Soluciones gráficas, tecnológicas e industriales de máxima precisión.',
       columns: FOOTER_COLUMNS,
       contact: {
         address: CONTACT.address,
-        phone: CONTACT.phone.display,
-        email: CONTACT.email.general,
+        phone: CONTACT_LINKS.phone,
+        email: CONTACT_LINKS.generalEmail,
         hours: CONTACT.businessHours,
       },
       legalLinks: LEGAL_LINKS,
-      copyright: `© ${new Date().getFullYear()} ${CONTACT.company.legalName}. Todos los derechos reservados.`,
+      copyright: `© ${new Date().getFullYear()} ${CONTACT.company.shortName}. Todos los derechos reservados.`,
     },
     floatingWhatsAppHref: CONTACT_LINKS.whatsappUrgent,
   }

@@ -7,29 +7,22 @@ interface FloatingWhatsAppProps {
 
 /**
  * Acceso flotante a un asesor técnico por WhatsApp.
- * Mobile-first: en teléfono es un botón circular; desde `sm` se expande a píldora con texto.
+ * Mobile-first: en teléfono es solo el botón circular; desde `sm` se expande a píldora con texto.
  */
-export function FloatingWhatsApp({
-  href,
-  label = 'Asesor Técnico en Línea',
-}: FloatingWhatsAppProps) {
+export function FloatingWhatsApp({ href, label = 'Asesor técnico' }: FloatingWhatsAppProps) {
   return (
-    <div className="fixed right-4 bottom-4 z-40 flex items-end gap-3 sm:right-6 sm:bottom-6">
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={label}
-        className="group border-outline/40 bg-inverse-surface text-inverse-on-surface hover:border-primary-container flex items-center gap-2.5 rounded-full border p-1.5 shadow-lg transition-all sm:py-2.5 sm:pr-4 sm:pl-3.5"
-      >
-        <span className="bg-primary-container hidden h-2.5 w-2.5 animate-ping rounded-full sm:block" />
-        <span className="font-body-sm text-body-sm group-hover:text-primary-fixed hidden font-semibold transition-colors sm:inline">
-          {label}
-        </span>
-        <span className="bg-primary-container text-on-surface flex h-12 w-12 items-center justify-center rounded-full sm:ml-1 sm:h-8 sm:w-8">
-          <Icon name="chat" filled className="text-2xl sm:text-lg" />
-        </span>
-      </a>
-    </div>
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} por WhatsApp`}
+      className="group bg-inverse-surface text-inverse-on-surface hover:border-primary-container fixed right-4 bottom-4 z-40 flex items-center gap-2.5 rounded-full border border-white/15 p-1.5 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1),0_4px_6px_-4px_rgba(0,0,0,0.1)] transition-colors sm:right-6 sm:bottom-6 sm:pl-3.5"
+    >
+      <span aria-hidden="true" className="bg-primary-container hidden h-2.5 w-2.5 rounded-full sm:block" />
+      <span className="hidden text-[13px] leading-5 font-semibold sm:inline">{label}</span>
+      <span className="bg-primary-container text-on-surface flex h-12 w-12 items-center justify-center rounded-full sm:h-8 sm:w-8">
+        <Icon name="chat" filled className="text-2xl sm:text-lg" />
+      </span>
+    </a>
   )
 }

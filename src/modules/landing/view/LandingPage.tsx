@@ -4,15 +4,18 @@ import { useLandingVM } from '../vm/useLandingVM'
 import { SpecModal } from './components'
 import {
   CtaBanner,
-  GallerySection,
   HeroSection,
-  QuoteSection,  
+  ProcessSection,
   ServicesSection,
   TechnologySection,
   TrajectorySection,
 } from './sections'
 
-/** Landing de SGTI: composición de secciones. Toda la lógica vive en `useLandingVM`. */
+/**
+ * Landing de SGTI (rediseño V2): composición de secciones.
+ * Toda la lógica vive en `useLandingVM`. El banner final es el destino de "Cotizar proyecto"
+ * y su CTA abre WhatsApp con el mensaje de cotización.
+ */
 export function LandingPage() {
   const vm = useLandingVM()
   const quoteHref = anchor(SECTION_IDS.quote)
@@ -30,22 +33,22 @@ export function LandingPage() {
         services={vm.services}
         onOpenSpecs={vm.specModal.open}
       />
+      <TechnologySection
+        id={SECTION_IDS.technology}
+        substrates={vm.substrates}
+        datasheetHref={quoteHref}
+      />
+      <TrajectorySection id={SECTION_IDS.about} clients={vm.clients} />
+      <ProcessSection steps={vm.process} />
       <CtaBanner
+        id={SECTION_IDS.quote}
         title="¿Requieres maquila en volumen o desarrollos bajo norma?"
         description="Cotizaciones directas de taller para agencias, plantas industriales y proyectos corporativos."
-        ctaLabel="Solicitar Cotización"
-        ctaHref={quoteHref}
+        ctaLabel="Solicitar cotización"
+        ctaHref={CONTACT_LINKS.whatsappQuote}
+        external
       />
-      <TechnologySection id={SECTION_IDS.technology} substrates={vm.substrates} />
-      <GallerySection items={vm.gallery} sampleHref={anchor(SECTION_IDS.contact)} />
-      <TrajectorySection id={SECTION_IDS.about} clients={vm.clients} />
-      <QuoteSection
-        id={SECTION_IDS.quote}
-        highlights={vm.quoteHighlights}
-        whatsappHref={CONTACT_LINKS.whatsappQuote}
-        phone={CONTACT_LINKS.phone}
-      />
-      
+
       <SpecModal vm={vm.specModal} />
     </>
   )

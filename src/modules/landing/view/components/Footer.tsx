@@ -1,127 +1,99 @@
-import { cn } from '@/lib/cn'
 import type { FooterColumn, NavLink } from '../../model/landing.types'
 import { Icon } from './Icon'
+import { InkStrip } from './InkStrip'
 import { Logo } from './Logo'
-
-interface SocialLink {
-  href: string
-  label: string
-  icon: string
-  filled?: boolean
-  external?: boolean
-}
 
 interface FooterProps {
   id?: string
   description: string
-  socials: SocialLink[]
   columns: FooterColumn[]
-  contact: { address: string; phone: string; email: string; hours: string }
+  contact: {
+    address: string
+    phone: { href: string; label: string }
+    email: { href: string; label: string }
+    hours: string
+  }
   legalLinks: NavLink[]
   copyright: string
 }
 
 function FooterHeading({ children }: { children: string }) {
   return (
-    <span className="font-headline-sm text-surface-container-lowest mb-2 text-base font-bold tracking-wider uppercase">
+    <span className="mb-1 text-[11px] leading-[14px] font-bold tracking-[0.08em] uppercase opacity-80">
       {children}
     </span>
   )
 }
 
-/** Footer industrial: marca, columnas de enlaces, datos de taller y barra legal. */
-export function Footer({
-  id,
-  description,
-  socials,
-  columns,
-  contact,
-  legalLinks,
-  copyright,
-}: FooterProps) {
+/** Footer V2: marca, columnas de enlaces, contacto y barra legal con la tira de tintas. */
+export function Footer({ id, description, columns, contact, legalLinks, copyright }: FooterProps) {
   return (
-    <footer
-      id={id}
-      className="border-outline/20 bg-inverse-surface text-inverse-on-surface mt-auto border-t"
-    >
-      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 py-10 sm:px-6 sm:py-12 lg:px-12">
-        <div className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-5">
+    <footer id={id} className="bg-inverse-surface text-inverse-on-surface mt-auto">
+      <div className="mx-auto w-full max-w-7xl px-4 pt-14 pb-8 sm:px-6 sm:pt-16 lg:px-12 ">
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-3">
           {/* Marca */}
-          <div className="col-span-2 flex flex-col items-start gap-4">
-            <Logo variant="footer" tagline="Gráficas • Industriales" />
-            <p className="font-body-sm text-body-sm text-secondary-fixed-dim max-w-sm">
-              {description}
-            </p>
-            <div className="text-secondary-fixed-dim flex items-center gap-3 pt-2">
-              {socials.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  title={s.label}
-                  aria-label={s.label}
-                  {...(s.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="border-outline/40 bg-inverse-surface text-primary-fixed hover:bg-primary-container hover:text-on-surface flex h-9 w-9 items-center justify-center rounded-lg border transition-colors"
-                >
-                  <Icon name={s.icon} filled={s.filled} className="text-lg" />
-                </a>
-              ))}
-            </div>
+          <div className="flex flex-col items-start gap-4 p-3">
+            <Logo variant="footer" href="#inicio" />
+            <p className="max-w-[260px] text-[13px] leading-5 opacity-80">{description}</p>
           </div>
 
           {/* Columnas de enlaces */}
           {columns.map((col) => (
-            <div key={col.title} className="flex flex-col gap-2">
+            <nav key={col.title} aria-label={col.title} className="flex flex-col gap-2.5 text-sm">
               <FooterHeading>{col.title}</FooterHeading>
               {col.links.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className={cn(
-                    'font-body-sm text-body-sm hover:text-inverse-on-surface transition-colors',
-                    link.highlight ? 'text-primary-fixed font-bold' : 'text-secondary-fixed-dim',
-                  )}
+                  className="text-inverse-on-surface hover:text-primary-fixed transition-colors"
                 >
                   {link.label}
                 </a>
               ))}
-            </div>
+            </nav>
           ))}
 
-          {/* Taller & ventas */}
-          <div className="col-span-2 flex flex-col gap-3 lg:col-span-1">
-            <FooterHeading>Taller & Ventas</FooterHeading>
-            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-start gap-2">
+          {/* Contacto */}
+          <div className="flex flex-col gap-2.5 text-sm sm:col-span-2 lg:col-span-1">
+            <FooterHeading>Contacto</FooterHeading>
+            <a
+              href={contact.phone.href}
+              className="hover:text-primary-fixed flex items-center gap-2 transition-colors"
+            >
+              <Icon name="phone_in_talk" className="text-primary-fixed text-lg" />
+              {contact.phone.label}
+            </a>
+            <a
+              href={contact.email.href}
+              className="hover:text-primary-fixed flex items-center gap-2 break-all transition-colors"
+            >
+              <Icon name="mail" className="text-primary-fixed text-lg" />
+              {contact.email.label}
+            </a>
+            <p className="flex items-start gap-2">
               <Icon name="location_on" className="text-primary-fixed mt-0.5 text-lg" />
               <span>{contact.address}</span>
-            </div>
-            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-center gap-2">
-              <Icon name="phone_in_talk" className="text-primary-fixed text-lg" />
-              <span>{contact.phone}</span>
-            </div>
-            <div className="font-body-sm text-body-sm text-secondary-fixed-dim flex items-center gap-2">
-              <Icon name="mail" className="text-primary-fixed text-lg" />
-              <span>{contact.email}</span>
-            </div>
-            <div className="font-label-tech text-label-tech text-primary-fixed pt-1">
+            </p>
+            <p className="text-primary-fixed pt-1 text-[11px] leading-[14px] font-bold tracking-[0.08em] uppercase">
               {contact.hours}
-            </div>
+            </p>
           </div>
         </div>
 
         {/* Barra inferior */}
-        <div className="border-outline/30 font-label-tech text-label-tech text-secondary-fixed-dim flex flex-col items-center justify-between gap-4 border-t pt-6 text-center md:flex-row md:text-left">
-          <p>{copyright}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/15 pt-6 text-[13px] leading-5 md:flex-row md:items-center md:justify-between">
+          <p className="opacity-80">{copyright}</p>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
             {legalLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
-                className="hover:text-primary-fixed transition-colors"
+                className="opacity-80 transition-opacity hover:opacity-100"
               >
                 {link.label}
               </a>
             ))}
-            <span className="text-primary-fixed font-bold">Hecho en México</span>
+            <InkStrip keyClassName="bg-inverse-on-surface" />
           </div>
         </div>
       </div>
